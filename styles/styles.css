@@ -1,0 +1,11 @@
+.payment {
+    position: absolute;
+    height: 600px;
+    width: 450px;
+    left: 0%;
+    top: 25%;
+}
+
+.input {
+    width: 200px;
+}
