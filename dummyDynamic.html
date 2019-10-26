@@ -5,29 +5,54 @@
     <title>Test Payment Container</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./bootstrap/bootstrap.css">
-    <script src="./js/payment.js"></script>
     <script src="bootstrap/jquery.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="./js/payment.js"></script>
     <script>var payment = new Payment();</script>
 </head>
 
 <body>
-    <!-- navBar here  -->
+    <!-- navBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand">Dummy page</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" id="pageName">Dummy page</a>
+        <!-- dropDown main menu when scaled down -->
+        <button class="navbar-toggler" 
+                type="button" 
+                data-toggle="collapse"
+                ata-target="#navbarColor01"
+                aria-controls="navbarColor01" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
+        <!-- navbar content -->
+        <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item active" id="homeButton">
                     <a class="nav-link" href="./dummyDynamic.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown" id="paymentsDropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Quick go</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item disabled" onClick="payment.generatePayment('carpay')">Car Pay</a>
+                            <a class="dropdown-item disabled" onClick="payment.generatePayment('creditaccount')">Credit Account</a>
+                            <a class="dropdown-item disabled" onClick="payment.generatePayment('creditcard')">Credit Card</a>
+                            <a class="dropdown-item disabled" onClick="payment.generatePayment('invoice')">Invoice</a>
+                            <a class="dropdown-item disabled" onClick="payment.generatePayment('paymentmenu')">payment Menu</a>
+                            <a class="dropdown-item disabled" onClick="payment.generatePayment('swish')">Swish</a>
+                            <a class="dropdown-item disabled" onClick="payment.generatePayment('vipps')">Vipps</a>
+                        </div>
+                </li>
+                <li class="nav-item dropdown" id="stylingDropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Styles</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item seconary" onClick="payment.sillyStyle()">90's teenager</a>
+                        </div>
+                </li>
+                <li class="nav-item" id="featuresButton">
                     <a class="nav-link" href="#">Features</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"id="aboutButton">
                     <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
@@ -36,26 +61,14 @@
 
     <!-- payment parameters -->
     <div class="input" id="inputs">
-            <input 
-                class="form-control mr-sm-2"    
-                id="hvUrl" 
-                type="text" 
-                name="link"
-                value=""
-                placeholder="payment link">
-            <!-- <input 
-                class="form-control mr-sm-2" 
-                id="style" 
-                type="text" 
-                name="styling" 
-                value=""
-                placeholder="Styling"> -->
-            <button class="btn btn-success my-2 my-sm-0" onclick="payment.applyStyling()">Apply
-            </button>
-            <button class="btn btn-success my-2 my-sm-0" onclick="payment.kickit()">Kickit!
-            </button>
+        <input class="form-control mr-sm-2" id="hvUrl" type="text" name="link" value="" placeholder="payment link">
+        <input class="form-control mr-sm-2 disabled" id="style" type="text" name="styling" value="" placeholder="Styling">
+        <button class="btn btn-success my-2 my-sm-0" onclick="payment.applyStyling()">Apply
+        </button>
+        <button class="btn btn-success my-2 my-sm-0" onclick="payment.kickit()">Kickit!
+        </button>
     </div>
-    
+
     <!-- iframe for payment -->
     <div class="payment" , id="payment-container">
 </body>
