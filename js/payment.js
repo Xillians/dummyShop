@@ -7,6 +7,7 @@ class Payment {
 
         this.url = url;
         this.styling = styling;
+        this.instrument = undefined;
         this.openInstrument = undefined;
     }
 
@@ -28,43 +29,6 @@ class Payment {
         }
     }
 
-    async generatePayment(instrument) {
-        var requests = new Requests();
-
-        switch (instrument) {
-            case "carpay": {
-                var hvUrl = await requests.createCarPayPayment();
-                break;
-            }
-            case "creditaccount": {
-                var hvUrl = await this.createCreditAccountPayment();
-                break;
-            }
-            case "creditcard": {
-                var hvUrl = await requests.createCcPayment();
-                break;
-            }
-            case "invoice": {
-                var hvUrl = await this.createInvoicePayment();
-                break;
-            }
-            case "paymentmenu": {
-                var hvUrl = await this.createPaymentOrder();
-                break;
-            }
-            case "swish": {
-                var hvUrl = await this.createSwishPayment();
-                break;
-            }
-            case "vipps": {
-                var hvUrl = await this.vipps();
-                break;
-            }
-        }
-        $("#hvUrl").val(hvUrl);
-        this.applyStyling();
-    }
-
     injectScript(src) {
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
@@ -75,16 +39,6 @@ class Payment {
             script.addEventListener('abort', () => reject('Script loading aborted.'));
             document.head.appendChild(script);
         });
-    }
-
-    kickit() {
-        var urlSplit = this.url.split("/");
-        var instrument = urlSplit[3];
-        if (this.openInstrument != undefined)
-            this.iframeClose(instrument)
-
-        this.iframeOpen(instrument);
-        this.openInstrument = instrument;
     }
 
     iframeClose(instrument) {
@@ -132,68 +86,46 @@ class Payment {
     }
 
     iframeOpen(instrument) {
+        var container = {
+            container: 'payment-container',
+            onPaymentCompleted:  function(paymentCompletedEvent) {this.paymentComplete() },
+            style: this.styling
+        };
         switch (instrument) {
             case "carpay": {
-                payex.hostedView.carPay({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.carPay(container).open();
                 break;
             }
             case "creditaccount": {
-                payex.hostedView.creditAccount({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.creditAccount(container).open();
                 break;
             }
             case "creditcardv2": {
-                payex.hostedView.creditCard({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.creditCard(container).open();
                 break;
             }
             case "invoice": {
-                payex.hostedView.invoice({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.invoice(container).open();
                 break;
             }
             case "paymentmenu": {
-                payex.hostedView.paymentMenu({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.paymentMenu(container).open();
                 break;
             }
             case "swish": {
-                payex.hostedView.swish({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.swish(container).open();
                 break;
             }
             case "vipps": {
-                payex.hostedView.vipps({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.vipps(container).open();
                 break;
             }
             case "vippsv2": {
-                payex.hostedView.vipps({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.vipps(container).open();
                 break;
             }
             case "consumers": {
-                payex.hostedView.consumer({
-                    container: 'payment-container',
-                    style: this.styling
-                }).open();
+                payex.hostedView.consumer(container).open();
                 break;
             }
             default: {
@@ -203,78 +135,46 @@ class Payment {
     }
 
     iframeUpdate() {
-        switch (instrument) {
+        var container = {
+            container: 'payment-container',
+            onPaymentCompleted:  function(paymentCompletedEvent) {paymentComplete() },
+            style: this.styling
+        };
+        switch (this.instrument) {
             case "carpay": {
-                payex.hostedView.carPay().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    }
-                );
+                payex.hostedView.carPay().update(container);
                 break;
             }
             case "creditaccount": {
-                payex.hostedView.creditAccount().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+                payex.hostedView.creditAccount().update(container);
                 break;
             }
-            case "creditcardv2": {
-                payex.hostedView.creditCard().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+            case "creditcardv2": {               
+                payex.hostedView.creditCard().update(container);
                 break;
             }
             case "invoice": {
-                payex.hostedView.invoice().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+                payex.hostedView.invoice().update(container);
                 break;
             }
             case "paymentmenu": {
-                payex.hostedView.paymentMenu().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+                payex.hostedView.paymentMenu().update(container);
                 break;
             }
             case "swish": {
-                payex.hostedView.swish().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+                payex.hostedView.swish().update(container);
                 break;
             }
             case "vipps": {
-                payex.hostedView.vipps().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+                payex.hostedView.vipps().update(container);
                 break;
             }
             case "vippsv2": {
-                payex.hostedView.vipps().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+                payex.hostedView.vipps().update(container);
                 break;
             }
             case "consumers": {
-                payex.hostedView.consumer().update(
-                    {
-                        container: 'payment-container',
-                        style: this.styling
-                    });
+                payex.hostedView.consumer().update(container);
                 break;
             }
             default: {
@@ -283,26 +183,78 @@ class Payment {
         }
     }
 
-    // Styles under here
-    sillyStyle() {
-        this.styling = payex.hostedView.creditCard().update({
-            container: 'pxhv',
-            style: {
-                body: {
-                    backgroundColor: "#7FFFD4",
-                    font: "14px Comic Sans MS",
-                    color: "#ff69b4"
-                },
-                button: {
-                    font: "14 px Comic Sans",
-                    backgroundColor: "#FFFF00",
-                    color: "#ff69b4"
-                },
-                label: {
-                    font: "14 px Comic Sans ",
-                    color: "#8C15D4"
+    kickit() {
+        var urlSplit = this.url.split("/");
+        var instrument = urlSplit[3];
+        this.instrument = instrument;
+        if (this.openInstrument != undefined)
+            this.iframeClose(instrument)
+
+        this.iframeOpen(instrument);
+        this.openInstrument = instrument;
+    }
+
+    quickStyles(style) {
+        switch(style) {
+            case "90steen": {
+                this.styling = {
+                    body: {
+                        backgroundColor: "#7FFFD4",
+                        font: "14px Comic Sans MS",
+                        color: "#ff69b4"
+                    },
+                    button: {
+                        font: "14 px Comic Sans",
+                        backgroundColor: "#FFFF00",
+                        color: "#ff69b4"
+                    },
+                    label: {
+                        font: "14 px Comic Sans ",
+                        color: "#8C15D4"
+                    }
                 }
+                break;
             }
-        });
+            case "dark": {
+                this.styling = {
+                    body: {
+                        backgroundColor: "#4f3d39",
+                        font: "14px Arial",
+                        color: "#bfb9b9"
+                    },
+                    button: {
+                        font: "14 px Arial",
+                        backgroundColor: "#3da973",
+                        color: "#1c1c1c"
+                    },
+                    label: {
+                        font: "14 px Arial",
+                        color: "#1c1c1c"
+                    }
+                }
+                break;
+            }
+            case "standard": {
+                this.styling = {
+                    body: {
+                        font: "14px Arial, Verdana, Helvetica, sans-serif",
+                        color: "#919aa1",
+                        backgroundColor: "#FFFFFF"
+                    },
+                    button: {
+                        backgroundColor: "#ee7023",
+                        color: "#FFFFFF"
+                    },
+                    label: {
+                        color: "#72605e"
+                    }
+                };
+            }
+        }
+        this.iframeUpdate();
+    }
+
+    paymentComplete() {
+        console.log("SUCCESS!");        
     }
 }
