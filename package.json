@@ -1,0 +1,24 @@
+{
+  "name": "dummydynamic",
+  "version": "1.0.0",
+  "description": "A page to embed a payment script if you have one, test styling, or generate a payment.",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "memes": "http-server -p 1337"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xillians/dynamicPaymentPage.git"
+  },
+  "author": "Syver Toftemo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xillians/dynamicPaymentPage/issues"
+  },
+  "homepage": "https://github.com/Xillians/dynamicPaymentPage#readme"
+}

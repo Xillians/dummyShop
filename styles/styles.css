@@ -1,13 +1,22 @@
 .payment {
     position: relative;
-    height: 600px;
+    height: 500px;
     width: 450px;
     left: 0%;
     top: 0%;
+    padding-left: 125px;
 }
 
 .input {
     position: relative;
-    width: 180px;
-    height: 150px;
+    width: 650px;
+    height: 100px;
+    padding-left: 20px;
+}
+
+.button {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    padding-left: 200px;
 }

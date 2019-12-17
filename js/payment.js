@@ -47,6 +47,10 @@ class Payment {
                 payex.hostedView.carPay().close();
                 break;
             }
+            case "consumers": {
+                payex.hostedView.consumer().close();
+                break;
+            }
             case "creditaccount": {
                 payex.hostedView.creditAccount().close();
                 break;
@@ -67,16 +71,16 @@ class Payment {
                 payex.hostedView.swish().close();
                 break;
             }
+            case "trustly": {
+                payex.hostedView.trustly().close();
+                break;
+            }
             case "vipps": {
                 payex.hostedView.vipps().close();
                 break;
             }
             case "vippsv2": {
                 payex.hostedView.vipps().close();
-                break;
-            }
-            case "consumers": {
-                payex.hostedView.consumer().close();
                 break;
             }
             default: {
@@ -88,12 +92,16 @@ class Payment {
     iframeOpen(instrument) {
         var container = {
             container: 'payment-container',
-            onPaymentCompleted:  function(paymentCompletedEvent) {this.paymentComplete() },
+            // onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
         switch (instrument) {
             case "carpay": {
                 payex.hostedView.carPay(container).open();
+                break;
+            }
+            case "consumers": {
+                payex.hostedView.consumer(container).open();
                 break;
             }
             case "creditaccount": {
@@ -116,16 +124,16 @@ class Payment {
                 payex.hostedView.swish(container).open();
                 break;
             }
+            case "trustly": {
+                payex.hostedView.trustly(container).open();
+                break;
+            }
             case "vipps": {
                 payex.hostedView.vipps(container).open();
                 break;
             }
             case "vippsv2": {
                 payex.hostedView.vipps(container).open();
-                break;
-            }
-            case "consumers": {
-                payex.hostedView.consumer(container).open();
                 break;
             }
             default: {
@@ -137,12 +145,16 @@ class Payment {
     iframeUpdate() {
         var container = {
             container: 'payment-container',
-            onPaymentCompleted:  function(paymentCompletedEvent) {paymentComplete() },
+            // onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
         switch (this.instrument) {
             case "carpay": {
                 payex.hostedView.carPay().update(container);
+                break;
+            }
+            case "consumers": {
+                payex.hostedView.consumer().update(container);
                 break;
             }
             case "creditaccount": {
@@ -165,16 +177,16 @@ class Payment {
                 payex.hostedView.swish().update(container);
                 break;
             }
+            case "trustly": {
+                payex.hostedView.trustly(container).update();
+                break;
+            }
             case "vipps": {
                 payex.hostedView.vipps().update(container);
                 break;
             }
             case "vippsv2": {
                 payex.hostedView.vipps().update(container);
-                break;
-            }
-            case "consumers": {
-                payex.hostedView.consumer().update(container);
                 break;
             }
             default: {
@@ -185,13 +197,13 @@ class Payment {
 
     kickit() {
         var urlSplit = this.url.split("/");
-        var instrument = urlSplit[3];
-        this.instrument = instrument;
-        if (this.openInstrument != undefined)
-            this.iframeClose(instrument)
+        this.instrument = urlSplit[3];
+        
+        if(this.openInstrument != undefined)
+            this.iframeClose(this.instrument);
 
-        this.iframeOpen(instrument);
-        this.openInstrument = instrument;
+        this.iframeOpen(this.instrument);
+        this.openInstrument = this.instrument;
     }
 
     quickStyles(style) {
@@ -249,6 +261,7 @@ class Payment {
                         color: "#72605e"
                     }
                 };
+                break;
             }
         }
         this.iframeUpdate();
