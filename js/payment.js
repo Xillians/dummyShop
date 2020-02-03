@@ -208,25 +208,6 @@ class Payment {
 
     quickStyles(style) {
         switch(style) {
-            case "90steen": {
-                this.styling = {
-                    body: {
-                        backgroundColor: "#7FFFD4",
-                        font: "14px Comic Sans MS",
-                        color: "#ff69b4"
-                    },
-                    button: {
-                        font: "14 px Comic Sans",
-                        backgroundColor: "#FFFF00",
-                        color: "#ff69b4"
-                    },
-                    label: {
-                        font: "14 px Comic Sans ",
-                        color: "#8C15D4"
-                    }
-                }
-                break;
-            }
             case "dark": {
                 this.styling = {
                     body: {
