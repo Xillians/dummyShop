@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+    <title>Dummy shop</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.css">
+    <script src="./bootstrap/jquery.min.js"></script>
+    <script src="./bootstrap/bootstrap.min.js"></script>
+    <script src="./js/payment.js"></script>
+    <script>var payment = new Payment();</script>
+</head>
+
+<body>
+    <!-- navBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" id="pageName">Dummy page</a>
+        <!-- dropDown main menu when scaled down -->
+        <button class="navbar-toggler" 
+                type="button" 
+                data-toggle="collapse"
+                ata-target="#navbarColor01"
+                aria-controls="navbarColor01" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- navbar content -->
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" id="homeButton">
+                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown" id="stylingDropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Styles</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item secondary" onClick="payment.quickStyles('dark')">Dark</a>
+                            <a class="dropdown-item secondary" onClick="payment.quickStyles('standard')">Standard</a>
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <left>
+        <!-- payment parameters -->
+        <div class="input" id="inputs">
+            <input id="hvUrl" type="text" class="form-control mr-sm-2"  name="link" placeholder="payment link">
+            <input id="style" type="text" class="form-control mr-sm-2 disabled"  name="styling" placeholder="Styling">
+        </div>
+        <div class="button" id="buttons">
+            <button id="applyStyle" class="btn btn-success my-2 my-sm-0" onclick="payment.applyStyling()">Apply
+            </button>
+            <button id="kickIt"class="btn btn-success my-2 my-sm-0" onclick="payment.kickit()">Kickit!
+            </button>
+        </div>
+    </left>
+        <!-- iframe for payment -->
+        <div class="payment" id="payment-container">
+</body>
+
+</html>
