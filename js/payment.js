@@ -92,7 +92,7 @@ class Payment {
     iframeOpen(instrument) {
         var container = {
             container: 'payment-container',
-            // onPaymentCompleted:  () => { this.paymentComplete() },
+            onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
         switch (instrument) {
@@ -132,10 +132,6 @@ class Payment {
                 payex.hostedView.vipps(container).open();
                 break;
             }
-            case "vippsv2": {
-                payex.hostedView.vipps(container).open();
-                break;
-            }
             default: {
                 console.log("Failed to open");
             }
@@ -145,7 +141,7 @@ class Payment {
     iframeUpdate() {
         var container = {
             container: 'payment-container',
-            // onPaymentCompleted:  () => { this.paymentComplete() },
+            onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
         switch (this.instrument) {
@@ -249,6 +245,6 @@ class Payment {
     }
 
     paymentComplete() {
-        console.log("SUCCESS!");        
+        console.log("Payment completed.");        
     }
 }
