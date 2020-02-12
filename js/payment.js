@@ -92,7 +92,7 @@ class Payment {
     iframeOpen(instrument) {
         var container = {
             container: 'payment-container',
-            onPaymentCompleted:  () => { this.paymentComplete() },
+            // onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
         switch (instrument) {
@@ -141,7 +141,7 @@ class Payment {
     iframeUpdate() {
         var container = {
             container: 'payment-container',
-            onPaymentCompleted:  () => { this.paymentComplete() },
+            // onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
         switch (this.instrument) {
