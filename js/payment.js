@@ -59,6 +59,10 @@ class Payment {
                 payex.hostedView.creditCard().close();
                 break;
             }
+            case "creditcardv3": {
+                payex.hostedView.creditCard().close();
+                break;
+            }
             case "invoice": {
                 payex.hostedView.invoice().close();
                 break;
@@ -112,6 +116,10 @@ class Payment {
                 payex.hostedView.creditCard(container).open();
                 break;
             }
+            case "creditcardv3": {
+                payex.hostedView.creditCard(container).open();
+                break;
+            }
             case "invoice": {
                 payex.hostedView.invoice(container).open();
                 break;
@@ -158,6 +166,10 @@ class Payment {
                 break;
             }
             case "creditcardv2": {               
+                payex.hostedView.creditCard().update(container);
+                break;
+            }
+            case "creditcardv3": {               
                 payex.hostedView.creditCard().update(container);
                 break;
             }
