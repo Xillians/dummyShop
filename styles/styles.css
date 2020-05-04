@@ -20,3 +20,9 @@
     height: 100px;
     padding-left: 200px;
 }
+
+.navigation {
+    position: relative;
+    width: 800px;
+    height: 100px;
+}

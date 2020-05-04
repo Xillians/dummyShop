@@ -13,34 +13,36 @@
 
 <body>
     <!-- navBar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" id="pageName">Dummy page</a>
-        <!-- dropDown main menu when scaled down -->
-        <button class="navbar-toggler" 
-                type="button" 
-                data-toggle="collapse"
-                ata-target="#navbarColor01"
-                aria-controls="navbarColor01" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- navbar content -->
-        <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active" id="homeButton">
-                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown" id="stylingDropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Styles</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item secondary" onClick="payment.quickStyles('dark')">Dark</a>
-                            <a class="dropdown-item secondary" onClick="payment.quickStyles('standard')">Standard</a>
-                        </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" id="pageName">Dummy page</a>
+            <!-- dropDown main menu when scaled down -->
+            <button class="navbar-toggler" 
+                    type="button" 
+                    data-toggle="collapse"
+                    ata-target="#navbarColor01"
+                    aria-controls="navbarColor01" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- navbar content -->
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" id="homeButton">
+                        <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown" id="stylingDropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Styles</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item secondary" onClick="payment.quickStyles('dark')">Dark</a>
+                                <a class="dropdown-item secondary" onClick="payment.quickStyles('standard')">Standard</a>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <left>
         <!-- payment parameters -->
