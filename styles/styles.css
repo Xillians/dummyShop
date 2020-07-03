@@ -6,13 +6,9 @@
 .input {
     position: relative;
     text-align: center;
-    left: 10px;
 }
 
 .button {
     position: relative;
     left: 20%;
-}
-.navigation {
-    position: relative;
 }
