@@ -10,11 +10,8 @@
 
 .button {
     position: relative;
-    width: 400px;
-    height: 100px;
-    padding-left: 200px;
+    left: 20%;
 }
-
 .navigation {
     position: relative;
     width: 800px;
