@@ -96,7 +96,8 @@ class Payment {
     iframeOpen(instrument) {
         var container = {
             container: 'payment-container',
-            // onPaymentCompleted:  () => { this.paymentComplete() },
+            onPaymentCompleted:  () => { this.paymentComplete() },
+            onError:  (error) =>  { console.log(error) },
             style: this.styling
         };
         switch (instrument) {
