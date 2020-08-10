@@ -99,11 +99,7 @@ class Payment {
             // onPaymentCompleted:  () => { this.paymentComplete() },
             onError:  (error) =>  { console.log(error) },
             style: this.styling
-        };  
-        let checkbox =  document.getElementById('logErrors');
-        if (checkbox.checked == true){
-            container.onError =  (error) =>  { console.log(error) };            
-        }
+        };
         switch (instrument) {
             case "carpay": {
                 payex.hostedView.carPay(container).open();
