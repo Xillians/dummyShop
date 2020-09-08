@@ -97,7 +97,7 @@ class Payment {
         var container = {
             container: 'payment-container',
             // onPaymentCompleted:  () => { this.paymentComplete() },
-            onError:  (error) =>  { console.log(error) },
+            onError:  (error) =>  { console.log("Error: ",error) },
             style: this.styling
         };
         switch (instrument) {
