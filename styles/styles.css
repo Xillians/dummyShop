@@ -9,7 +9,7 @@
 
 .input {
     position: relative;
-    width: 650px;
+    width: 98%;
     height: 100px;
     padding-left: 20px;
 }
@@ -18,12 +18,12 @@
     position: relative;
     width: 400px;
     height: 100px;
-    padding-left: 200px;
+    padding-left: 10%;
 }
 
 .navigation {
     position: relative;
-    width: 800px;
+    width: 98%;
     height: 100px;
 }
 
