@@ -67,6 +67,10 @@ class Payment {
                 payex.hostedView.invoice().close();
                 break;
             }
+            case "mobilepay": {
+                payex.hostedView.mobilepay().close();
+                break;
+            }
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().close();
                 break;
@@ -88,7 +92,7 @@ class Payment {
                 break;
             }
             default: {
-                console.log("Failed to close");
+                console.log("Failed to close: instrument not recognised");
             }
         }
     }
@@ -97,7 +101,6 @@ class Payment {
         var container = {
             container: 'payment-container',
             // onPaymentCompleted:  () => { this.paymentComplete() },
-            onError:  (error) =>  { console.log("Error: ",error) },
             style: this.styling
         };
         switch (instrument) {
@@ -125,6 +128,10 @@ class Payment {
                 payex.hostedView.invoice(container).open();
                 break;
             }
+            case "mobilepay": {
+                payex.hostedView.mobilepay(container).open();
+                break;
+            }
             case "paymentmenu": {
                 payex.hostedView.paymentMenu(container).open();
                 break;
@@ -142,7 +149,7 @@ class Payment {
                 break;
             }
             default: {
-                console.log("Failed to open");
+                console.log("Failed to open: instrument not recognised");
             }
         }
     }
@@ -178,6 +185,10 @@ class Payment {
                 payex.hostedView.invoice().update(container);
                 break;
             }
+            case "mobilepay": {
+                payex.hostedView.mobilepay().update(container);
+                break;
+            }
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().update(container);
                 break;
@@ -199,7 +210,7 @@ class Payment {
                 break;
             }
             default: {
-                console.log("Failed to update");
+                console.log("Failed to update: instrument not recognised");
             }
         }
     }
