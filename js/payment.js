@@ -71,6 +71,7 @@ class Payment {
                 payex.hostedView.mobilepay().close();
                 break;
             }
+            case "payment":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().close();
                 break;
@@ -132,6 +133,7 @@ class Payment {
                 payex.hostedView.mobilepay(container).open();
                 break;
             }
+            case "payment":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu(container).open();
                 break;
@@ -189,6 +191,7 @@ class Payment {
                 payex.hostedView.mobilepay().update(container);
                 break;
             }
+            case "payment":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().update(container);
                 break;
