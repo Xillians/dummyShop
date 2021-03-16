@@ -4,9 +4,9 @@
   "description": "A page to embed a payment script if you have one, test styling, or generate a payment.",
   "main": "index.js",
   "dependencies": {
+    "ecstatic": ">=4.1.3",
     "http-server": "^0.12.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server -p 4000"
