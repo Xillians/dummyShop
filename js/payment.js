@@ -28,7 +28,6 @@ class Payment {
             });
         }
     }
-
     injectScript(src) {
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
@@ -40,197 +39,37 @@ class Payment {
             document.head.appendChild(script);
         });
     }
-
     iframeClose(instrument) {
-        switch (instrument) {
-            case "carpay": {
-                payex.hostedView.carPay().close();
-                break;
-            }
-            case "consumers": {
-                payex.hostedView.consumer().close();
-                break;
-            }
-            case "creditaccount": {
-                payex.hostedView.creditAccount().close();
-                break;
-            }
-            case "creditcardv2": {
-                payex.hostedView.creditCard().close();
-                break;
-            }
-            case "creditcardv3": {
-                payex.hostedView.creditCard().close();
-                break;
-            }
-            case "invoice": {
-                payex.hostedView.invoice().close();
-                break;
-            }
-            case "mobilepay": {
-                payex.hostedView.mobilepay().close();
-                break;
-            }
-            case "payment":
-            case "paymentmenu": {
-                payex.hostedView.paymentMenu().close();
-                break;
-            }
-            case "swish": {
-                payex.hostedView.swish().close();
-                break;
-            }
-            case "trustly": {
-                payex.hostedView.trustly().close();
-                break;
-            }
-            case "vipps": {
-                payex.hostedView.vipps().close();
-                break;
-            }
-            case "vippsv2": {
-                payex.hostedView.vipps().close();
-                break;
-            }
-            default: {
-                console.log("Failed to close: instrument not recognised");
-            }
-        }
+        this.setInstrument(instrument, close());
     }
-
     iframeOpen(instrument) {
         var container = {
             container: 'payment-container',
             // onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
-        switch (instrument) {
-            case "carpay": {
-                payex.hostedView.carPay(container).open();
-                break;
-            }
-            case "consumers": {
-                payex.hostedView.consumer(container).open();
-                break;
-            }
-            case "creditaccount": {
-                payex.hostedView.creditAccount(container).open();
-                break;
-            }
-            case "creditcardv2": {
-                payex.hostedView.creditCard(container).open();
-                break;
-            }
-            case "creditcardv3": {
-                payex.hostedView.creditCard(container).open();
-                break;
-            }
-            case "invoice": {
-                payex.hostedView.invoice(container).open();
-                break;
-            }
-            case "mobilepay": {
-                payex.hostedView.mobilepay(container).open();
-                break;
-            }
-            case "payment":
-            case "paymentmenu": {
-                payex.hostedView.paymentMenu(container).open();
-                break;
-            }
-            case "swish": {
-                payex.hostedView.swish(container).open();
-                break;
-            }
-            case "trustly": {
-                payex.hostedView.trustly(container).open();
-                break;
-            }
-            case "vipps": {
-                payex.hostedView.vipps(container).open();
-                break;
-            }
-            default: {
-                console.log("Failed to open: instrument not recognised");
-            }
-        }
+        this.setInstrument(instrument, container, open());
     }
-
     iframeUpdate() {
         var container = {
             container: 'payment-container',
             // onPaymentCompleted:  () => { this.paymentComplete() },
             style: this.styling
         };
-        switch (this.instrument) {
-            case "carpay": {
-                payex.hostedView.carPay().update(container);
-                break;
-            }
-            case "consumers": {
-                payex.hostedView.consumer().update(container);
-                break;
-            }
-            case "creditaccount": {
-                payex.hostedView.creditAccount().update(container);
-                break;
-            }
-            case "creditcardv2": {               
-                payex.hostedView.creditCard().update(container);
-                break;
-            }
-            case "creditcardv3": {               
-                payex.hostedView.creditCard().update(container);
-                break;
-            }
-            case "invoice": {
-                payex.hostedView.invoice().update(container);
-                break;
-            }
-            case "mobilepay": {
-                payex.hostedView.mobilepay().update(container);
-                break;
-            }
-            case "payment":
-            case "paymentmenu": {
-                payex.hostedView.paymentMenu().update(container);
-                break;
-            }
-            case "swish": {
-                payex.hostedView.swish().update(container);
-                break;
-            }
-            case "trustly": {
-                payex.hostedView.trustly(container).update();
-                break;
-            }
-            case "vipps": {
-                payex.hostedView.vipps().update(container);
-                break;
-            }
-            case "vippsv2": {
-                payex.hostedView.vipps().update(container);
-                break;
-            }
-            default: {
-                console.log("Failed to update: instrument not recognised");
-            }
-        }
+        this.setInstrument(instrument, update(container));
     }
-
     kickit() {
         var urlSplit = this.url.split("/");
         this.instrument = urlSplit[3];
-        
-        if(this.openInstrument != undefined)
+
+        if (this.openInstrument != undefined)
             this.iframeClose(this.instrument);
 
         this.iframeOpen(this.instrument);
         this.openInstrument = this.instrument;
     }
-
     quickStyles(style) {
-        switch(style) {
+        switch (style) {
             case "dark": {
                 this.styling = {
                     body: {
@@ -270,8 +109,56 @@ class Payment {
         }
         this.iframeUpdate();
     }
-
     paymentComplete() {
-        console.log("Payment completed.");        
+        console.log("Payment completed.");
+    }
+    setInstrument(instrument, method, container = {}) {
+        switch (instrument) {
+            case "carpay": {
+                payex.hostedView.carPay(container)[method];
+                break;
+            }
+            case "consumers": {
+                payex.hostedView.consumer(container)[method];
+                break;
+            }
+            case "creditaccount": {
+                payex.hostedView.creditAccount(container)[method];
+                break;
+            }
+            case "creditcardv2":
+            case "creditcardv3": {
+                payex.hostedView.creditCard(container)[method];
+                break;
+            }
+            case "invoice": {
+                payex.hostedView.invoice(container)[method];
+                break;
+            }
+            case "mobilepay": {
+                payex.hostedView.mobilepay(container)[method];
+                break;
+            }
+            case "payment":
+            case "paymentmenu": {
+                payex.hostedView.paymentMenu(container)[method];
+                break;
+            }
+            case "swish": {
+                payex.hostedView.swish(container)[method];
+                break;
+            }
+            case "trustly": {
+                payex.hostedView.trustly(container)[method];
+                break;
+            }
+            case "vipps": {
+                payex.hostedView.vipps(container)[method];
+                break;
+            }
+            default: {
+                console.log("failed to find instrument");
+            }
+        }
     }
 }
