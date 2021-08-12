@@ -102,6 +102,18 @@ class Payment {
         var container = {
             container: 'payment-container',
             // onPaymentCompleted:  () => { this.paymentComplete() },
+            // onPaymentPaid:  () => { console.log("onPaymentPaid") },
+            // onEventNotification:  () => { console.log("onEventNotification") },
+            // onInstrumentSelected:  () => { console.log("onInstrumentSelected") },
+            // onExternalRedirect:  () => { console.log("onExternalRedirect") },
+            // onError:  () => { console.log("onError") },
+            // onTermsOfServiceRequested:  () => { console.log("onTermsOfServiceRequested") },
+            // onOutOfViewRedirect:  () => { console.log("onOutOfViewRedirect") },
+            // OnApllicationConfigured: () => { console.log("OnApllicationConfigured") },
+            // onPaymentAborted:  () => { console.log("onPaymentAborted") },
+            // onPaymentFailed:  () => { console.log("onPaymentFailed") },
+            // ExternalOpen:  () => { console.log("ExternalOpen") },
+            // onOutOfViewOpen:  () => { console.log("onOutOfViewOpen") },
             style: this.styling
         };
         switch (instrument) {
@@ -134,6 +146,7 @@ class Payment {
                 break;
             }
             case "payment":
+            case "checkout":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu(container).open();
                 break;
@@ -160,6 +173,18 @@ class Payment {
         var container = {
             container: 'payment-container',
             // onPaymentCompleted:  () => { this.paymentComplete() },
+            // onPaymentPaid:  () => { console.log("onPaymentPaid") },
+            // onEventNotification:  () => { console.log("onEventNotification") },
+            // onInstrumentSelected:  () => { console.log("onInstrumentSelected") },
+            // onExternalRedirect:  () => { console.log("onExternalRedirect") },
+            // onError:  () => { console.log("onError") },
+            // onTermsOfServiceRequested:  () => { console.log("onTermsOfServiceRequested") },
+            // onOutOfViewRedirect:  () => { console.log("onOutOfViewRedirect") },
+            // OnApllicationConfigured: () => { console.log("OnApllicationConfigured") },
+            // onPaymentAborted:  () => { console.log("onPaymentAborted") },
+            // onPaymentFailed:  () => { console.log("onPaymentFailed") },
+            // ExternalOpen:  () => { console.log("ExternalOpen") },
+            // onOutOfViewOpen:  () => { console.log("onOutOfViewOpen") },
             style: this.styling
         };
         switch (this.instrument) {
@@ -192,6 +217,7 @@ class Payment {
                 break;
             }
             case "payment":
+            case "checkout":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().update(container);
                 break;
