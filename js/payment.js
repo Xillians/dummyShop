@@ -101,18 +101,19 @@ class Payment {
     iframeOpen(instrument) {
         var container = {
             container: 'payment-container',
-            //onPaymentPaid:  () => { console.log("onPaymentPaid") },
-            //onEventNotification:  () => { console.log("onEventNotification") },
-            //onInstrumentSelected:  () => { console.log("onInstrumentSelected") },
-            //onExternalRedirect:  () => { console.log("onExternalRedirect") },
-            //onError:  () => { console.log("onError") },
-            //onTermsOfServiceRequested:  () => { console.log("onTermsOfServiceRequested") },
-            //onOutOfViewRedirect:  () => { console.log("onOutOfViewRedirect") },
-            //OnApllicationConfigured: () => { console.log("OnApllicationConfigured") },
-            //onPaymentAborted:  () => { console.log("onPaymentAborted") },
-            //onPaymentFailed:  () => { console.log("onPaymentFailed") },
-            //ExternalOpen:  () => { console.log("ExternalOpen") },
-            //onOutOfViewOpen:  () => { console.log("onOutOfViewOpen") },
+            // onPaymentCompleted:  () => { this.paymentComplete() },
+            // onPaymentPaid:  () => { console.log("onPaymentPaid") },
+            // onEventNotification:  () => { console.log("onEventNotification") },
+            // onInstrumentSelected:  () => { console.log("onInstrumentSelected") },
+            // onExternalRedirect:  () => { console.log("onExternalRedirect") },
+            // onError:  () => { console.log("onError") },
+            // onTermsOfServiceRequested:  () => { console.log("onTermsOfServiceRequested") },
+            // onOutOfViewRedirect:  () => { console.log("onOutOfViewRedirect") },
+            // OnApllicationConfigured: () => { console.log("OnApllicationConfigured") },
+            // onPaymentAborted:  () => { console.log("onPaymentAborted") },
+            // onPaymentFailed:  () => { console.log("onPaymentFailed") },
+            // ExternalOpen:  () => { console.log("ExternalOpen") },
+            // onOutOfViewOpen:  () => { console.log("onOutOfViewOpen") },
             style: this.styling
         };
         switch (instrument) {
@@ -171,18 +172,19 @@ class Payment {
     iframeUpdate() {
         var container = {
             container: 'payment-container',
-            //onPaymentPaid:  () => { console.log("onPaymentPaid") },
-            //onEventNotification:  () => { console.log("onEventNotification") },
-            //onInstrumentSelected:  () => { console.log("onInstrumentSelected") },
-            //onExternalRedirect:  () => { console.log("onExternalRedirect") },
-            //onError:  () => { console.log("onError") },
-            //onTermsOfServiceRequested:  () => { console.log("onTermsOfServiceRequested") },
-            //onOutOfViewRedirect:  () => { console.log("onOutOfViewRedirect") },
-            //OnApllicationConfigured: () => { console.log("OnApllicationConfigured") },
-            //onPaymentAborted:  () => { console.log("onPaymentAborted") },
-            //onPaymentFailed:  () => { console.log("onPaymentFailed") },
-            //ExternalOpen:  () => { console.log("ExternalOpen") },
-            //onOutOfViewOpen:  () => { console.log("onOutOfViewOpen") },
+            // onPaymentCompleted:  () => { this.paymentComplete() },
+            // onPaymentPaid:  () => { console.log("onPaymentPaid") },
+            // onEventNotification:  () => { console.log("onEventNotification") },
+            // onInstrumentSelected:  () => { console.log("onInstrumentSelected") },
+            // onExternalRedirect:  () => { console.log("onExternalRedirect") },
+            // onError:  () => { console.log("onError") },
+            // onTermsOfServiceRequested:  () => { console.log("onTermsOfServiceRequested") },
+            // onOutOfViewRedirect:  () => { console.log("onOutOfViewRedirect") },
+            // OnApllicationConfigured: () => { console.log("OnApllicationConfigured") },
+            // onPaymentAborted:  () => { console.log("onPaymentAborted") },
+            // onPaymentFailed:  () => { console.log("onPaymentFailed") },
+            // ExternalOpen:  () => { console.log("ExternalOpen") },
+            // onOutOfViewOpen:  () => { console.log("onOutOfViewOpen") },
             style: this.styling
         };
         switch (this.instrument) {
