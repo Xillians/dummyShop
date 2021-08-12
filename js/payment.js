@@ -218,7 +218,6 @@ class Payment {
             case "checkout":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().update(container);
-                console.log("Payment or payment menu was opened")
                 break;
             }
             case "swish": {
