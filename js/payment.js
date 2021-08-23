@@ -71,6 +71,9 @@ class Payment {
                 payex.hostedView.mobilepay().close();
                 break;
             }
+            case "checkout": {
+                payex.hostedView.checkout().close();
+            }
             case "payment":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().close();
@@ -145,8 +148,10 @@ class Payment {
                 payex.hostedView.mobilepay(container).open();
                 break;
             }
+            case "checkout": {
+                payex.hostedView.checkout(container).open();
+            }
             case "payment":
-            case "checkout":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu(container).open();
                 break;
@@ -216,8 +221,10 @@ class Payment {
                 payex.hostedView.mobilepay().update(container);
                 break;
             }
+            case "checkout": {
+                payex.hostedView.checkout().update(container);
+            }
             case "payment":
-            case "checkout":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().update(container);
                 break;
