@@ -71,10 +71,7 @@ class Payment {
                 payex.hostedView.mobilepay().close();
                 break;
             }
-            case "checkout": {
-                payex.hostedView.checkout().close();
-                break;
-            }
+            case "checkout":
             case "payment":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().close();
@@ -149,10 +146,7 @@ class Payment {
                 payex.hostedView.mobilepay(container).open();
                 break;
             }
-            case "checkout": {
-                payex.hostedView.checkout(container).open();
-                break;
-            }
+            case "checkout":
             case "payment":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu(container).open();
@@ -223,10 +217,7 @@ class Payment {
                 payex.hostedView.mobilepay().update(container);
                 break;
             }
-            case "checkout": {
-                payex.hostedView.checkout().update(container);
-                break;
-            }
+            case "checkout":
             case "payment":
             case "paymentmenu": {
                 payex.hostedView.paymentMenu().update(container);
@@ -312,5 +303,3 @@ class Payment {
         console.log("Payment completed.");
     }
 }
-
-
