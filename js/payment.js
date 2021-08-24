@@ -73,6 +73,7 @@ class Payment {
             }
             case "checkout": {
                 payex.hostedView.checkout().close();
+                break;
             }
             case "payment":
             case "paymentmenu": {
@@ -150,6 +151,7 @@ class Payment {
             }
             case "checkout": {
                 payex.hostedView.checkout(container).open();
+                break;
             }
             case "payment":
             case "paymentmenu": {
@@ -205,11 +207,11 @@ class Payment {
                 payex.hostedView.creditAccount().update(container);
                 break;
             }
-            case "creditcardv2": {               
+            case "creditcardv2": {
                 payex.hostedView.creditCard().update(container);
                 break;
             }
-            case "creditcardv3": {               
+            case "creditcardv3": {
                 payex.hostedView.creditCard().update(container);
                 break;
             }
@@ -223,6 +225,7 @@ class Payment {
             }
             case "checkout": {
                 payex.hostedView.checkout().update(container);
+                break;
             }
             case "payment":
             case "paymentmenu": {
@@ -254,16 +257,17 @@ class Payment {
     kickit() {
         var urlSplit = this.url.split("/");
         this.instrument = urlSplit[3];
-        
-        if(this.openInstrument != undefined)
+
+        if (this.openInstrument != undefined)
             this.iframeClose(this.instrument);
 
+        console.log("kicking it!");
         this.iframeOpen(this.instrument);
         this.openInstrument = this.instrument;
     }
 
     quickStyles(style) {
-        switch(style) {
+        switch (style) {
             case "dark": {
                 this.styling = {
                     body: {
@@ -305,6 +309,8 @@ class Payment {
     }
 
     paymentComplete() {
-        console.log("Payment completed.");        
+        console.log("Payment completed.");
     }
 }
+
+
