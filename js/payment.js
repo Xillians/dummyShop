@@ -112,7 +112,7 @@ class Payment {
             // onOutOfViewRedirect:  () => { console.log("onOutOfViewRedirect") },
             // OnApllicationConfigured: () => { console.log("OnApllicationConfigured") },
             // onPaymentAborted:  () => { console.log("onPaymentAborted") },
-            // onPaymentFailed:  () => { console.log("onPaymentFailed") },
+            onPaymentFailed:  () => { console.log("onPaymentFailed") },
             // ExternalOpen:  () => { console.log("ExternalOpen") },
             // onOutOfViewOpen:  () => { console.log("onOutOfViewOpen") },
             style: this.styling
